@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>modal</title>
+  </head>
+  <style>
+    body {
+      background-color: coral;
+    }
+
+    .modal {
+      /* background-color: #aaaa; */
+      display: none;
+      justify-content: center;
+      align-items: center;
+
+      width: 500px;
+      height: 500px;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .modal._btn {
+      display: flex;
+      z-index: 1;
+    }
+
+    .modal_content {
+      background-color: pink;
+      width: 500px;
+      height: 500px;
+      position: fixed;
+    }
+
+    .backdrop {
+      width: 100%;
+      height: 100%;
+      background-color: #aaaa;
+      z-index: 0;
+      display: none;
+      position: fixed;
+    }
+
+    .backdrop._on {
+      display: flex;
+    }
+  </style>
+  <body>
+    <div class="modal_backdrop">
+      <div class="modal">
+        <div class="modal_content">
+          MODAL content
+          <button class="modal_cl">closebtn</button>
+        </div>
+      </div>
+      <div class="backdrop"></div>
+    </div>
+    <div class="main">
+      <button class="modal_open">openbtn</button>
+      <div>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni assumenda
+        unde facilis distinctio quos dicta, incidunt in reprehenderit ipsa.
+        Culpa blanditiis tempora ullam eos esse maxime dicta nam vitae. Minima?
+      </div>
+      <div>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni assumenda
+        unde facilis distinctio quos dicta, incidunt in reprehenderit ipsa.
+        Culpa blanditiis tempora ullam eos esse maxime dicta nam vitae. Minima?
+      </div>
+      <div>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni assumenda
+        unde facilis distinctio quos dicta, incidunt in reprehenderit ipsa.
+        Culpa blanditiis tempora ullam eos esse maxime dicta nam vitae. Minima?
+      </div>
+      <div>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni assumenda
+        unde facilis distinctio quos dicta, incidunt in reprehenderit ipsa.
+        Culpa blanditiis tempora ullam eos esse maxime dicta nam vitae. Minima?
+      </div>
+      <div>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni assumenda
+        unde facilis distinctio quos dicta, incidunt in reprehenderit ipsa.
+        Culpa blanditiis tempora ullam eos esse maxime dicta nam vitae. Minima?
+      </div>
+      <div>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni assumenda
+        unde facilis distinctio quos dicta, incidunt in reprehenderit ipsa.
+        Culpa blanditiis tempora ullam eos esse maxime dicta nam vitae. Minima?
+      </div>
+    </div>
+    <script>
+      const openBtn = document.querySelector(".modal_open");
+      const closeBtn = document.querySelector(".modal_cl");
+      const modal = document.querySelector(".modal");
+      const backdrop = document.querySelector(".backdrop");
+
+      openBtn.addEventListener("click", function () {
+        modal.classList.add("_btn");
+        backdrop.classList.add("_on");
+      });
+
+      closeBtn.addEventListener("click", function () {
+        modal.classList.remove("_btn");
+        backdrop.classList.remove("_on");
+      });
+
+      backdrop.addEventListener("click", function () {
+        backdrop.classList.remove("_on");
+        modal.classList.remove("_btn");
+        console.log("clicked");
+      });
+    </script>
+  </body>
+</html>
